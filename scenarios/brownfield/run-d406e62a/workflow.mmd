@@ -1,0 +1,38 @@
+graph LR
+  requirements["requirements<br/>AUTONOMOUS"]
+  impact_analysis["impact-analysis<br/>AUTONOMOUS"]
+  requirements --> impact_analysis
+  architecture["architecture<br/>SUPERVISED"]
+  requirements --> architecture
+  impact_analysis --> architecture
+  test_plan["test-plan<br/>AUTONOMOUS"]
+  requirements --> test_plan
+  impact_analysis --> test_plan
+  schema_migration["schema-migration<br/>GUARDED"]
+  architecture --> schema_migration
+  impact_analysis --> schema_migration
+  implementation["implementation<br/>GUARDED"]
+  architecture --> implementation
+  schema_migration --> implementation
+  test_plan --> implementation
+  regression_tests["regression-tests<br/>AUTONOMOUS"]
+  implementation --> regression_tests
+  impact_analysis --> regression_tests
+  unit_tests["unit-tests<br/>AUTONOMOUS"]
+  implementation --> unit_tests
+  test_plan --> unit_tests
+  docs["docs<br/>AUTONOMOUS"]
+  architecture --> docs
+  implementation --> docs
+  build_validation["build-validation<br/>AUTONOMOUS"]
+  implementation --> build_validation
+  unit_tests --> build_validation
+  regression_tests --> build_validation
+  security_review["security-review<br/>AUTONOMOUS"]
+  implementation --> security_review
+  release_readiness["release-readiness<br/>SUPERVISED"]
+  unit_tests --> release_readiness
+  regression_tests --> release_readiness
+  docs --> release_readiness
+  security_review --> release_readiness
+  build_validation --> release_readiness

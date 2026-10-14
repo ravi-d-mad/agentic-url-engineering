@@ -1,0 +1,54 @@
+{"seq":1,"ts":"2026-10-14T10:55:26.139695341Z","runId":"run-f4bf1f37","type":"RUN_STARTED","node":"","data":{"workflow":"greenfield"}}
+{"seq":2,"ts":"2026-10-14T10:55:26.157470401Z","runId":"run-f4bf1f37","type":"WAVE_STARTED","node":"","data":{"nodes":"requirements"}}
+{"seq":3,"ts":"2026-10-14T10:55:26.163049378Z","runId":"run-f4bf1f37","type":"NODE_STARTED","node":"requirements","data":{"agent":"requirements-analyst","autonomy":"AUTONOMOUS"}}
+{"seq":4,"ts":"2026-10-14T10:55:26.204295532Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"requirements","data":{"artifact":"requirements@1","derivedFrom":"requirement@1,clarifications@1","by":"agent:requirements-analyst","sha256":"2d2b6eb61776"}}
+{"seq":5,"ts":"2026-10-14T10:55:26.207261646Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"requirements","data":{"artifact":"open-questions@1","derivedFrom":"requirement@1,clarifications@1","by":"agent:requirements-analyst","sha256":"1b25bf42b81e"}}
+{"seq":6,"ts":"2026-10-14T10:55:26.207549431Z","runId":"run-f4bf1f37","type":"INPUT_REQUESTED","node":"requirements","data":{"questions":"- What does 'safer' mean: malware/phishing blocking, abuse/rate limiting, or access control on links?\n- What load is 'scale'? Target redirects/second, read/write ratio, and single vs multi-region?\n"}}
+{"seq":7,"ts":"2026-10-14T10:55:26.217627645Z","runId":"run-f4bf1f37","type":"RUN_PAUSED","node":"","data":{"reason":"awaiting human: [requirements(AWAITING_INPUT)]"}}
+{"seq":8,"ts":"2026-10-14T10:55:26.218499201Z","runId":"run-f4bf1f37","type":"INPUT_PROVIDED","node":"","data":{"artifact":"clarifications@2","by":"product-owner"}}
+{"seq":9,"ts":"2026-10-14T10:55:26.221990197Z","runId":"run-f4bf1f37","type":"ARTIFACT_INVALIDATED","node":"requirements","data":{"artifact":"clarifications","cause":"human:product-owner"}}
+{"seq":10,"ts":"2026-10-14T10:55:26.222182079Z","runId":"run-f4bf1f37","type":"REPLAN","node":"","data":{"staleNodes":"requirements","trigger":"clarifications"}}
+{"seq":11,"ts":"2026-10-14T10:55:26.222890035Z","runId":"run-f4bf1f37","type":"WAVE_STARTED","node":"","data":{"nodes":"requirements"}}
+{"seq":12,"ts":"2026-10-14T10:55:26.226920254Z","runId":"run-f4bf1f37","type":"NODE_STARTED","node":"requirements","data":{"agent":"requirements-analyst","autonomy":"AUTONOMOUS"}}
+{"seq":13,"ts":"2026-10-14T10:55:26.231770050Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"requirements","data":{"artifact":"requirements@2","derivedFrom":"requirement@1,clarifications@2","by":"agent:requirements-analyst","sha256":"18b7a5f1fb83"}}
+{"seq":14,"ts":"2026-10-14T10:55:26.232175852Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"requirements","data":{"artifact":"open-questions@2","derivedFrom":"requirement@1,clarifications@2","by":"agent:requirements-analyst","sha256":"e3b0c44298fc"}}
+{"seq":15,"ts":"2026-10-14T10:55:26.232347451Z","runId":"run-f4bf1f37","type":"NODE_SUCCEEDED","node":"requirements","data":{"attempts":"1","agent":"requirements-analyst"}}
+{"seq":16,"ts":"2026-10-14T10:55:26.232616700Z","runId":"run-f4bf1f37","type":"WAVE_STARTED","node":"","data":{"nodes":"architecture,test-plan"}}
+{"seq":17,"ts":"2026-10-14T10:55:26.233111379Z","runId":"run-f4bf1f37","type":"NODE_STARTED","node":"architecture","data":{"agent":"architect","autonomy":"SUPERVISED"}}
+{"seq":18,"ts":"2026-10-14T10:55:26.235388977Z","runId":"run-f4bf1f37","type":"NODE_STARTED","node":"test-plan","data":{"agent":"test-planner","autonomy":"AUTONOMOUS"}}
+{"seq":19,"ts":"2026-10-14T10:55:26.239636284Z","runId":"run-f4bf1f37","type":"APPROVAL_REQUESTED","node":"architecture","data":{"reasons":"supervised node: human sign-off required"}}
+{"seq":20,"ts":"2026-10-14T10:55:26.240268017Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"test-plan","data":{"artifact":"test-plan@1","derivedFrom":"requirements@2","by":"agent:test-planner","sha256":"2b07749629ae"}}
+{"seq":21,"ts":"2026-10-14T10:55:26.240404792Z","runId":"run-f4bf1f37","type":"NODE_SUCCEEDED","node":"test-plan","data":{"attempts":"1","agent":"test-planner"}}
+{"seq":22,"ts":"2026-10-14T10:55:26.240659792Z","runId":"run-f4bf1f37","type":"RUN_PAUSED","node":"","data":{"reason":"awaiting human: [architecture(AWAITING_APPROVAL)]"}}
+{"seq":23,"ts":"2026-10-14T10:55:26.241726055Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"architecture","data":{"artifact":"architecture@1","derivedFrom":"requirements@2","by":"agent:architect+approved-by:reviewer","sha256":"7eca7dced496"}}
+{"seq":24,"ts":"2026-10-14T10:55:26.241908487Z","runId":"run-f4bf1f37","type":"APPROVED","node":"architecture","data":{"comment":"LGTM","by":"reviewer"}}
+{"seq":25,"ts":"2026-10-14T10:55:26.242360428Z","runId":"run-f4bf1f37","type":"NODE_SUCCEEDED","node":"architecture","data":{"attempts":"1","via":"approval"}}
+{"seq":26,"ts":"2026-10-14T10:55:26.242631236Z","runId":"run-f4bf1f37","type":"WAVE_STARTED","node":"","data":{"nodes":"implementation"}}
+{"seq":27,"ts":"2026-10-14T10:55:26.243085093Z","runId":"run-f4bf1f37","type":"NODE_STARTED","node":"implementation","data":{"agent":"implementer","autonomy":"GUARDED"}}
+{"seq":28,"ts":"2026-10-14T10:55:26.250264124Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"implementation","data":{"artifact":"implementation@1","derivedFrom":"architecture@1,test-plan@1","by":"agent:implementer","sha256":"2970bf7712d8"}}
+{"seq":29,"ts":"2026-10-14T10:55:26.251495070Z","runId":"run-f4bf1f37","type":"NODE_SUCCEEDED","node":"implementation","data":{"attempts":"1","agent":"implementer"}}
+{"seq":30,"ts":"2026-10-14T10:55:26.251780677Z","runId":"run-f4bf1f37","type":"WAVE_STARTED","node":"","data":{"nodes":"unit-tests,integration-tests,docs,security-review"}}
+{"seq":31,"ts":"2026-10-14T10:55:26.252305372Z","runId":"run-f4bf1f37","type":"NODE_STARTED","node":"unit-tests","data":{"agent":"unit-test-writer","autonomy":"AUTONOMOUS"}}
+{"seq":32,"ts":"2026-10-14T10:55:26.253344906Z","runId":"run-f4bf1f37","type":"NODE_STARTED","node":"integration-tests","data":{"agent":"integration-test-writer","autonomy":"AUTONOMOUS"}}
+{"seq":33,"ts":"2026-10-14T10:55:26.254324717Z","runId":"run-f4bf1f37","type":"NODE_STARTED","node":"docs","data":{"agent":"docs-writer","autonomy":"AUTONOMOUS"}}
+{"seq":34,"ts":"2026-10-14T10:55:26.254433154Z","runId":"run-f4bf1f37","type":"NODE_STARTED","node":"security-review","data":{"agent":"security-reviewer","autonomy":"AUTONOMOUS"}}
+{"seq":35,"ts":"2026-10-14T10:55:26.258774289Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"unit-tests","data":{"artifact":"unit-tests@1","derivedFrom":"implementation@1,test-plan@1","by":"agent:unit-test-writer","sha256":"5e948b776c61"}}
+{"seq":36,"ts":"2026-10-14T10:55:26.258930805Z","runId":"run-f4bf1f37","type":"NODE_SUCCEEDED","node":"unit-tests","data":{"attempts":"1","agent":"unit-test-writer"}}
+{"seq":37,"ts":"2026-10-14T10:55:26.259207725Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"integration-tests","data":{"artifact":"integration-tests@1","derivedFrom":"implementation@1,test-plan@1","by":"agent:integration-test-writer","sha256":"a1d7519c9470"}}
+{"seq":38,"ts":"2026-10-14T10:55:26.259340249Z","runId":"run-f4bf1f37","type":"NODE_SUCCEEDED","node":"integration-tests","data":{"attempts":"1","agent":"integration-test-writer"}}
+{"seq":39,"ts":"2026-10-14T10:55:26.259550349Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"docs","data":{"artifact":"docs@1","derivedFrom":"architecture@1,implementation@1","by":"agent:docs-writer","sha256":"a06b9d6b3423"}}
+{"seq":40,"ts":"2026-10-14T10:55:26.259653943Z","runId":"run-f4bf1f37","type":"NODE_SUCCEEDED","node":"docs","data":{"attempts":"1","agent":"docs-writer"}}
+{"seq":41,"ts":"2026-10-14T10:55:26.259868687Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"security-review","data":{"artifact":"security-review@1","derivedFrom":"implementation@1","by":"agent:security-reviewer","sha256":"d8771b59e627"}}
+{"seq":42,"ts":"2026-10-14T10:55:26.259981654Z","runId":"run-f4bf1f37","type":"NODE_SUCCEEDED","node":"security-review","data":{"attempts":"1","agent":"security-reviewer"}}
+{"seq":43,"ts":"2026-10-14T10:55:26.260170072Z","runId":"run-f4bf1f37","type":"WAVE_STARTED","node":"","data":{"nodes":"build-validation"}}
+{"seq":44,"ts":"2026-10-14T10:55:26.260728248Z","runId":"run-f4bf1f37","type":"NODE_STARTED","node":"build-validation","data":{"agent":"build-validator","autonomy":"AUTONOMOUS"}}
+{"seq":45,"ts":"2026-10-14T10:55:26.278822310Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"build-validation","data":{"artifact":"validation-report@1","derivedFrom":"implementation@1,unit-tests@1,integration-tests@1","by":"agent:build-validator","sha256":"2f2cfaf0524b"}}
+{"seq":46,"ts":"2026-10-14T10:55:26.279051268Z","runId":"run-f4bf1f37","type":"NODE_SUCCEEDED","node":"build-validation","data":{"attempts":"1","agent":"build-validator"}}
+{"seq":47,"ts":"2026-10-14T10:55:26.279256770Z","runId":"run-f4bf1f37","type":"WAVE_STARTED","node":"","data":{"nodes":"release-readiness"}}
+{"seq":48,"ts":"2026-10-14T10:55:26.279728640Z","runId":"run-f4bf1f37","type":"NODE_STARTED","node":"release-readiness","data":{"agent":"release-manager","autonomy":"SUPERVISED"}}
+{"seq":49,"ts":"2026-10-14T10:55:26.280316934Z","runId":"run-f4bf1f37","type":"APPROVAL_REQUESTED","node":"release-readiness","data":{"reasons":"supervised node: human sign-off required"}}
+{"seq":50,"ts":"2026-10-14T10:55:26.280654669Z","runId":"run-f4bf1f37","type":"RUN_PAUSED","node":"","data":{"reason":"awaiting human: [release-readiness(AWAITING_APPROVAL)]"}}
+{"seq":51,"ts":"2026-10-14T10:55:26.281266681Z","runId":"run-f4bf1f37","type":"ARTIFACT_COMMITTED","node":"release-readiness","data":{"artifact":"release-notes@1","derivedFrom":"unit-tests@1,integration-tests@1,docs@1,security-review@1,validation-report@1","by":"agent:release-manager+approved-by:reviewer","sha256":"1419a9349430"}}
+{"seq":52,"ts":"2026-10-14T10:55:26.281383174Z","runId":"run-f4bf1f37","type":"APPROVED","node":"release-readiness","data":{"comment":"LGTM","by":"reviewer"}}
+{"seq":53,"ts":"2026-10-14T10:55:26.281711058Z","runId":"run-f4bf1f37","type":"NODE_SUCCEEDED","node":"release-readiness","data":{"attempts":"1","via":"approval"}}
+{"seq":54,"ts":"2026-10-14T10:55:26.281840232Z","runId":"run-f4bf1f37","type":"RUN_COMPLETED","node":"","data":{"attemptsUsed":"11"}}

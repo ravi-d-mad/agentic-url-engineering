@@ -1,0 +1,56 @@
+{"seq":1,"ts":"2026-10-14T10:55:25.777303817Z","runId":"run-d406e62a","type":"RUN_STARTED","node":"","data":{"workflow":"brownfield"}}
+{"seq":2,"ts":"2026-10-14T10:55:25.792213784Z","runId":"run-d406e62a","type":"WAVE_STARTED","node":"","data":{"nodes":"requirements"}}
+{"seq":3,"ts":"2026-10-14T10:55:25.796753483Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"requirements","data":{"autonomy":"AUTONOMOUS","agent":"requirements-analyst"}}
+{"seq":4,"ts":"2026-10-14T10:55:25.829230525Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"requirements","data":{"sha256":"18b7a5f1fb83","by":"agent:requirements-analyst","derivedFrom":"requirement@1,clarifications@1","artifact":"requirements@1"}}
+{"seq":5,"ts":"2026-10-14T10:55:25.829562257Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"requirements","data":{"sha256":"e3b0c44298fc","by":"agent:requirements-analyst","derivedFrom":"requirement@1,clarifications@1","artifact":"open-questions@1"}}
+{"seq":6,"ts":"2026-10-14T10:55:25.829690327Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"requirements","data":{"agent":"requirements-analyst","attempts":"1"}}
+{"seq":7,"ts":"2026-10-14T10:55:25.829995412Z","runId":"run-d406e62a","type":"WAVE_STARTED","node":"","data":{"nodes":"impact-analysis"}}
+{"seq":8,"ts":"2026-10-14T10:55:25.830611066Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"impact-analysis","data":{"autonomy":"AUTONOMOUS","agent":"impact-analyst"}}
+{"seq":9,"ts":"2026-10-14T10:55:25.837773211Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"impact-analysis","data":{"sha256":"edd3f93cda29","by":"agent:impact-analyst","derivedFrom":"requirements@1,codebase-snapshot@1","artifact":"impact-analysis@1"}}
+{"seq":10,"ts":"2026-10-14T10:55:25.838342330Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"impact-analysis","data":{"agent":"impact-analyst","attempts":"1"}}
+{"seq":11,"ts":"2026-10-14T10:55:25.839431601Z","runId":"run-d406e62a","type":"WAVE_STARTED","node":"","data":{"nodes":"architecture,test-plan"}}
+{"seq":12,"ts":"2026-10-14T10:55:25.841813686Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"architecture","data":{"autonomy":"SUPERVISED","agent":"architect"}}
+{"seq":13,"ts":"2026-10-14T10:55:25.844267712Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"test-plan","data":{"autonomy":"AUTONOMOUS","agent":"test-planner"}}
+{"seq":14,"ts":"2026-10-14T10:55:25.858379760Z","runId":"run-d406e62a","type":"APPROVAL_REQUESTED","node":"architecture","data":{"reasons":"supervised node: human sign-off required"}}
+{"seq":15,"ts":"2026-10-14T10:55:25.858883985Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"test-plan","data":{"sha256":"2b07749629ae","by":"agent:test-planner","derivedFrom":"requirements@1,impact-analysis@1","artifact":"test-plan@1"}}
+{"seq":16,"ts":"2026-10-14T10:55:25.859038262Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"test-plan","data":{"agent":"test-planner","attempts":"1"}}
+{"seq":17,"ts":"2026-10-14T10:55:25.861579473Z","runId":"run-d406e62a","type":"RUN_PAUSED","node":"","data":{"reason":"awaiting human: [architecture(AWAITING_APPROVAL)]"}}
+{"seq":18,"ts":"2026-10-14T10:55:25.862518910Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"architecture","data":{"sha256":"6b7db27c5c93","by":"agent:architect+approved-by:reviewer","derivedFrom":"requirements@1,impact-analysis@1","artifact":"architecture@1"}}
+{"seq":19,"ts":"2026-10-14T10:55:25.862667520Z","runId":"run-d406e62a","type":"APPROVED","node":"architecture","data":{"comment":"LGTM","by":"reviewer"}}
+{"seq":20,"ts":"2026-10-14T10:55:25.863064912Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"architecture","data":{"attempts":"1","via":"approval"}}
+{"seq":21,"ts":"2026-10-14T10:55:25.863921209Z","runId":"run-d406e62a","type":"WAVE_STARTED","node":"","data":{"nodes":"schema-migration"}}
+{"seq":22,"ts":"2026-10-14T10:55:25.865126881Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"schema-migration","data":{"autonomy":"GUARDED","agent":"migration-author"}}
+{"seq":23,"ts":"2026-10-14T10:55:25.867816895Z","runId":"run-d406e62a","type":"APPROVAL_REQUESTED","node":"schema-migration","data":{"reasons":"high-impact-change: touches controlled file 'src/main/resources/db/migration/V2__click_daily_rollup.sql' | high-impact node"}}
+{"seq":24,"ts":"2026-10-14T10:55:25.869433972Z","runId":"run-d406e62a","type":"RUN_PAUSED","node":"","data":{"reason":"awaiting human: [schema-migration(AWAITING_APPROVAL)]"}}
+{"seq":25,"ts":"2026-10-14T10:55:25.871046246Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"schema-migration","data":{"sha256":"b2f0b800db57","by":"agent:migration-author+approved-by:reviewer","derivedFrom":"architecture@1,impact-analysis@1","artifact":"schema-migration@1"}}
+{"seq":26,"ts":"2026-10-14T10:55:25.871997064Z","runId":"run-d406e62a","type":"APPROVED","node":"schema-migration","data":{"comment":"LGTM","by":"reviewer"}}
+{"seq":27,"ts":"2026-10-14T10:55:25.873306766Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"schema-migration","data":{"attempts":"1","via":"approval"}}
+{"seq":28,"ts":"2026-10-14T10:55:25.873606409Z","runId":"run-d406e62a","type":"WAVE_STARTED","node":"","data":{"nodes":"implementation"}}
+{"seq":29,"ts":"2026-10-14T10:55:25.874024076Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"implementation","data":{"autonomy":"GUARDED","agent":"implementer"}}
+{"seq":30,"ts":"2026-10-14T10:55:25.878198965Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"implementation","data":{"sha256":"c5dcfb9710f0","by":"agent:implementer","derivedFrom":"architecture@1,schema-migration@1,test-plan@1","artifact":"implementation@1"}}
+{"seq":31,"ts":"2026-10-14T10:55:25.878362682Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"implementation","data":{"agent":"implementer","attempts":"1"}}
+{"seq":32,"ts":"2026-10-14T10:55:25.878581889Z","runId":"run-d406e62a","type":"WAVE_STARTED","node":"","data":{"nodes":"regression-tests,unit-tests,docs,security-review"}}
+{"seq":33,"ts":"2026-10-14T10:55:25.879053681Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"regression-tests","data":{"autonomy":"AUTONOMOUS","agent":"regression-test-writer"}}
+{"seq":34,"ts":"2026-10-14T10:55:25.884140545Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"unit-tests","data":{"autonomy":"AUTONOMOUS","agent":"unit-test-writer"}}
+{"seq":35,"ts":"2026-10-14T10:55:25.884351123Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"docs","data":{"autonomy":"AUTONOMOUS","agent":"docs-writer"}}
+{"seq":36,"ts":"2026-10-14T10:55:25.884461687Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"security-review","data":{"autonomy":"AUTONOMOUS","agent":"security-reviewer"}}
+{"seq":37,"ts":"2026-10-14T10:55:25.886825083Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"regression-tests","data":{"sha256":"60c93cd1d7c8","by":"agent:regression-test-writer","derivedFrom":"implementation@1,impact-analysis@1","artifact":"regression-tests@1"}}
+{"seq":38,"ts":"2026-10-14T10:55:25.887043228Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"regression-tests","data":{"agent":"regression-test-writer","attempts":"1"}}
+{"seq":39,"ts":"2026-10-14T10:55:25.887260011Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"unit-tests","data":{"sha256":"5e948b776c61","by":"agent:unit-test-writer","derivedFrom":"implementation@1,test-plan@1","artifact":"unit-tests@1"}}
+{"seq":40,"ts":"2026-10-14T10:55:25.887399789Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"unit-tests","data":{"agent":"unit-test-writer","attempts":"1"}}
+{"seq":41,"ts":"2026-10-14T10:55:25.887577401Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"docs","data":{"sha256":"a06b9d6b3423","by":"agent:docs-writer","derivedFrom":"architecture@1,implementation@1","artifact":"docs@1"}}
+{"seq":42,"ts":"2026-10-14T10:55:25.887682566Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"docs","data":{"agent":"docs-writer","attempts":"1"}}
+{"seq":43,"ts":"2026-10-14T10:55:25.887850701Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"security-review","data":{"sha256":"d8771b59e627","by":"agent:security-reviewer","derivedFrom":"implementation@1","artifact":"security-review@1"}}
+{"seq":44,"ts":"2026-10-14T10:55:25.887979683Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"security-review","data":{"agent":"security-reviewer","attempts":"1"}}
+{"seq":45,"ts":"2026-10-14T10:55:25.888218313Z","runId":"run-d406e62a","type":"WAVE_STARTED","node":"","data":{"nodes":"build-validation"}}
+{"seq":46,"ts":"2026-10-14T10:55:25.888607154Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"build-validation","data":{"autonomy":"AUTONOMOUS","agent":"build-validator"}}
+{"seq":47,"ts":"2026-10-14T10:55:25.902921474Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"build-validation","data":{"sha256":"2f2cfaf0524b","by":"agent:build-validator","derivedFrom":"implementation@1,unit-tests@1,regression-tests@1","artifact":"validation-report@1"}}
+{"seq":48,"ts":"2026-10-14T10:55:25.903104912Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"build-validation","data":{"agent":"build-validator","attempts":"1"}}
+{"seq":49,"ts":"2026-10-14T10:55:25.903311397Z","runId":"run-d406e62a","type":"WAVE_STARTED","node":"","data":{"nodes":"release-readiness"}}
+{"seq":50,"ts":"2026-10-14T10:55:25.903702148Z","runId":"run-d406e62a","type":"NODE_STARTED","node":"release-readiness","data":{"autonomy":"SUPERVISED","agent":"release-manager"}}
+{"seq":51,"ts":"2026-10-14T10:55:25.910514489Z","runId":"run-d406e62a","type":"APPROVAL_REQUESTED","node":"release-readiness","data":{"reasons":"supervised node: human sign-off required"}}
+{"seq":52,"ts":"2026-10-14T10:55:25.910946405Z","runId":"run-d406e62a","type":"RUN_PAUSED","node":"","data":{"reason":"awaiting human: [release-readiness(AWAITING_APPROVAL)]"}}
+{"seq":53,"ts":"2026-10-14T10:55:25.911577789Z","runId":"run-d406e62a","type":"ARTIFACT_COMMITTED","node":"release-readiness","data":{"sha256":"1419a9349430","by":"agent:release-manager+approved-by:reviewer","derivedFrom":"unit-tests@1,regression-tests@1,docs@1,security-review@1,validation-report@1","artifact":"release-notes@1"}}
+{"seq":54,"ts":"2026-10-14T10:55:25.911713489Z","runId":"run-d406e62a","type":"APPROVED","node":"release-readiness","data":{"comment":"LGTM","by":"reviewer"}}
+{"seq":55,"ts":"2026-10-14T10:55:25.912030140Z","runId":"run-d406e62a","type":"NODE_SUCCEEDED","node":"release-readiness","data":{"attempts":"1","via":"approval"}}
+{"seq":56,"ts":"2026-10-14T10:55:25.912167304Z","runId":"run-d406e62a","type":"RUN_COMPLETED","node":"","data":{"attemptsUsed":"12"}}

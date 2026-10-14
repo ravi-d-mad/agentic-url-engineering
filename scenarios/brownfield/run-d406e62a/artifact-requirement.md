@@ -1,0 +1,1 @@
+Add per-IP rate limiting on link creation and a clicks-per-day analytics breakdown to the existing shortener without changing the redirect contract.

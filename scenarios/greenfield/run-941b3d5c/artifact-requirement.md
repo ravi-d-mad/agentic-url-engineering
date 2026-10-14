@@ -1,0 +1,1 @@
+Build a URL shortener: create short links (optional expiry), redirect by code, per-link click stats, and basic reliability (validation, rate limiting, clear error codes).

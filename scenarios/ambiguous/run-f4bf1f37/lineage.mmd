@@ -1,0 +1,48 @@
+graph LR
+  classDef human fill:#fde68a,stroke:#b45309;
+  requirement_1["requirement@1<br/>human:requester"]
+  class requirement_1 human;
+  clarifications_1["clarifications@1<br/>human:requester"]
+  class clarifications_1 human;
+  requirements_1["requirements@1<br/>agent:requirements-analyst"]
+  requirement_1 --> requirements_1
+  clarifications_1 --> requirements_1
+  open_questions_1["open-questions@1<br/>agent:requirements-analyst"]
+  requirement_1 --> open_questions_1
+  clarifications_1 --> open_questions_1
+  clarifications_2["clarifications@2<br/>human:product-owner"]
+  class clarifications_2 human;
+  requirements_2["requirements@2<br/>agent:requirements-analyst"]
+  requirement_1 --> requirements_2
+  clarifications_2 --> requirements_2
+  open_questions_2["open-questions@2<br/>agent:requirements-analyst"]
+  requirement_1 --> open_questions_2
+  clarifications_2 --> open_questions_2
+  test_plan_1["test-plan@1<br/>agent:test-planner"]
+  requirements_2 --> test_plan_1
+  architecture_1["architecture@1<br/>agent:architect+approved-by:reviewer"]
+  requirements_2 --> architecture_1
+  implementation_1["implementation@1<br/>agent:implementer"]
+  architecture_1 --> implementation_1
+  test_plan_1 --> implementation_1
+  unit_tests_1["unit-tests@1<br/>agent:unit-test-writer"]
+  implementation_1 --> unit_tests_1
+  test_plan_1 --> unit_tests_1
+  integration_tests_1["integration-tests@1<br/>agent:integration-test-writer"]
+  implementation_1 --> integration_tests_1
+  test_plan_1 --> integration_tests_1
+  docs_1["docs@1<br/>agent:docs-writer"]
+  architecture_1 --> docs_1
+  implementation_1 --> docs_1
+  security_review_1["security-review@1<br/>agent:security-reviewer"]
+  implementation_1 --> security_review_1
+  validation_report_1["validation-report@1<br/>agent:build-validator"]
+  implementation_1 --> validation_report_1
+  unit_tests_1 --> validation_report_1
+  integration_tests_1 --> validation_report_1
+  release_notes_1["release-notes@1<br/>agent:release-manager+approved-by:reviewer"]
+  unit_tests_1 --> release_notes_1
+  integration_tests_1 --> release_notes_1
+  docs_1 --> release_notes_1
+  security_review_1 --> release_notes_1
+  validation_report_1 --> release_notes_1

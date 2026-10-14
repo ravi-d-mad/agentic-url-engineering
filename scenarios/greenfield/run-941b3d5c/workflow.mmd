@@ -1,0 +1,30 @@
+graph LR
+  requirements["requirements<br/>AUTONOMOUS"]
+  architecture["architecture<br/>SUPERVISED"]
+  requirements --> architecture
+  test_plan["test-plan<br/>AUTONOMOUS"]
+  requirements --> test_plan
+  implementation["implementation<br/>GUARDED"]
+  architecture --> implementation
+  test_plan --> implementation
+  unit_tests["unit-tests<br/>AUTONOMOUS"]
+  implementation --> unit_tests
+  test_plan --> unit_tests
+  integration_tests["integration-tests<br/>AUTONOMOUS"]
+  implementation --> integration_tests
+  test_plan --> integration_tests
+  docs["docs<br/>AUTONOMOUS"]
+  architecture --> docs
+  implementation --> docs
+  build_validation["build-validation<br/>AUTONOMOUS"]
+  implementation --> build_validation
+  unit_tests --> build_validation
+  integration_tests --> build_validation
+  security_review["security-review<br/>AUTONOMOUS"]
+  implementation --> security_review
+  release_readiness["release-readiness<br/>SUPERVISED"]
+  unit_tests --> release_readiness
+  integration_tests --> release_readiness
+  docs --> release_readiness
+  security_review --> release_readiness
+  build_validation --> release_readiness

@@ -1,0 +1,36 @@
+agentic:
+  llm: ${AGENTIC_LLM:mock}                 # mock (offline, deterministic) | spring-ai (real model)
+  validation: ${AGENTIC_VALIDATION:simulated}   # simulated | real  (real runs allowlisted `mvn` commands in a temp workspace)
+  baseline-dir: ${AGENTIC_BASELINE_DIR:}   # project copied into the validation workspace before generated files are overlaid
+  agent-timeout-seconds: 120
+  attempt-budget: 100
+
+spring:
+  datasource:
+    url: jdbc:h2:file:./data/agentic_sdlc;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  sql:
+    init:
+      mode: always
+  h2:
+    console:
+      enabled: ${H2_CONSOLE:true}         # off by default: the console is an unauthenticated DB UI
+      path: /h2-console
+  ai:
+    openai:
+      # Gemini through its OpenAI-compatible endpoint, so a Gemini API key is enough (no GCP project needed).
+      api-key: ${GEMINI_API_KEY:not-set}
+      base-url: https://generativelanguage.googleapis.com/v1beta/openai
+      chat:
+        completions-path: /chat/completions
+        options:
+          model: ${AGENTIC_MODEL:gemini-2.5-flash}   # set to a model your key can use
+          temperature: 0.2
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics, mappings

@@ -1,0 +1,19 @@
+# Environment secrets
+.env
+.env.*
+!.env.example
+
+# Java / Maven
+**/target/
+*.class
+
+# IDE files
+.idea/
+.vscode/
+
+# Logs
+*.log
+
+# Local runtime data
+runs/
+data/

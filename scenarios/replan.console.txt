@@ -1,0 +1,41 @@
+
+==================== RE-PLAN (requirements change after completion) ====================
+  WAVE_STARTED                            requirements
+  WAVE_STARTED                            architecture,test-plan
+  APPROVAL_REQUESTED   architecture       supervised node: human sign-off required
+  RUN_PAUSED                              awaiting human: [architecture(AWAITING_APPROVAL)]
+  APPROVED             architecture       reviewer
+  WAVE_STARTED                            implementation
+  WAVE_STARTED                            unit-tests,integration-tests,docs,security-review
+  WAVE_STARTED                            build-validation
+  WAVE_STARTED                            release-readiness
+  APPROVAL_REQUESTED   release-readiness  supervised node: human sign-off required
+  RUN_PAUSED                              awaiting human: [release-readiness(AWAITING_APPROVAL)]
+  APPROVED             release-readiness  reviewer
+  RUN_COMPLETED                           10
+
+>>> Human edits 'requirements' after completion: adds a 90-day default expiry rule
+  INPUT_PROVIDED                          pm
+  REPLAN                                  architecture,test-plan
+  WAVE_STARTED                            architecture,test-plan
+  APPROVAL_REQUESTED   architecture       supervised node: human sign-off required
+  RUN_PAUSED                              awaiting human: [architecture(AWAITING_APPROVAL)]
+  REPLAN                                  implementation,docs
+  APPROVED             architecture       reviewer
+  WAVE_STARTED                            implementation
+  WAVE_STARTED                            docs
+  RUN_COMPLETED                           14
+
+  FINAL STATUS: COMPLETED  nodes={requirements=SUCCEEDED, architecture=SUCCEEDED, test-plan=SUCCEEDED, implementation=SUCCEEDED, unit-tests=SUCCEEDED, integration-tests=SUCCEEDED, docs=SUCCEEDED, build-validation=SUCCEEDED, security-review=SUCCEEDED, release-readiness=SUCCEEDED}
+  generated 4 source files -> scenarios/replan/run-43845828/workspace
+# Run report: run-43845828
+| Metric | Value |
+|---|---|
+| Node success rate | 100% (14 ok / 0 failed) |
+| Retries / fallbacks / rollbacks | 0 / 0 / 0 |
+| Re-plans | 2 |
+| Policy denials / gate failures | 0 / 0 |
+| Approvals requested / granted / rejected | 3 / 3 / 0 |
+| MTTR (failed attempt -> valid output) | 0 ms |
+| End-to-end latency | 154 ms (human wait 7 ms, agent-active 147 ms) |
+

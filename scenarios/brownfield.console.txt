@@ -1,0 +1,34 @@
+
+==================== BROWNFIELD ====================
+  WAVE_STARTED                            requirements
+  WAVE_STARTED                            impact-analysis
+  WAVE_STARTED                            architecture,test-plan
+  APPROVAL_REQUESTED   architecture       supervised node: human sign-off required
+  RUN_PAUSED                              awaiting human: [architecture(AWAITING_APPROVAL)]
+  APPROVED             architecture       LGTM
+  WAVE_STARTED                            schema-migration
+  APPROVAL_REQUESTED   schema-migration   high-impact-change: touches controlled file 'src/main/resources/db/migration/V2__click_...
+  RUN_PAUSED                              awaiting human: [schema-migration(AWAITING_APPROVAL)]
+  APPROVED             schema-migration   LGTM
+  WAVE_STARTED                            implementation
+  WAVE_STARTED                            regression-tests,unit-tests,docs,security-review
+  WAVE_STARTED                            build-validation
+  WAVE_STARTED                            release-readiness
+  APPROVAL_REQUESTED   release-readiness  supervised node: human sign-off required
+  RUN_PAUSED                              awaiting human: [release-readiness(AWAITING_APPROVAL)]
+  APPROVED             release-readiness  LGTM
+  RUN_COMPLETED                           12
+
+  FINAL STATUS: COMPLETED  nodes={requirements=SUCCEEDED, impact-analysis=SUCCEEDED, architecture=SUCCEEDED, test-plan=SUCCEEDED, schema-migration=SUCCEEDED, implementation=SUCCEEDED, regression-tests=SUCCEEDED, unit-tests=SUCCEEDED, docs=SUCCEEDED, build-validation=SUCCEEDED, security-review=SUCCEEDED, release-readiness=SUCCEEDED}
+  generated 5 source files -> scenarios/brownfield/run-d406e62a/workspace
+# Run report: run-d406e62a
+| Metric | Value |
+|---|---|
+| Node success rate | 100% (12 ok / 0 failed) |
+| Retries / fallbacks / rollbacks | 0 / 0 / 0 |
+| Re-plans | 0 |
+| Policy denials / gate failures | 0 / 0 |
+| Approvals requested / granted / rejected | 3 / 3 / 0 |
+| MTTR (failed attempt -> valid output) | 0 ms |
+| End-to-end latency | 134 ms (human wait 9 ms, agent-active 125 ms) |
+

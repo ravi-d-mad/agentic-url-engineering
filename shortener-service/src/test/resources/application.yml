@@ -1,0 +1,6 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:shortener-test;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
+  h2:
+    console:
+      enabled: false

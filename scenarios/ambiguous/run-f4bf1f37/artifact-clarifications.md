@@ -1,0 +1,1 @@
+Safer = block malicious URLs (scheme allowlist + denylist) and rate-limit creation. Scale = 1k redirects/s, 100:1 read/write, single region, cache hot codes.
